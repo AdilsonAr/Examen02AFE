@@ -12,7 +12,8 @@ class ProductComponent extends Component
 
     public $view = 'create';
 
-    public $product_id, $name, $description, $quantity, $price;
+    public $product_id, $nombre, $descripcion, 
+    $garantia, $existencia,$precioUnitario,$id_vendedor;
 
     public function destroy($id){
         Product::destroy($id);
@@ -20,17 +21,21 @@ class ProductComponent extends Component
 
     public function save(){
         $this->validate([
-            'name' => 'required',
-            'description' => 'required',
-            'quantity' => 'required',
-            'price' => 'required'
+            'nombre' => 'required',
+            'descripcion' => 'required',
+            'garantia' => 'required',
+            'existencia' => 'required',
+            'precioUnitario' => 'required',
+            'id_vendedor' => 'required'
         ]);
 
         Product::create([
-            'name'        => $this->name,
-            'description' => $this->description,
-            'quantity'    => $this->quantity,
-            'price'       => $this->price
+            'nombre'        => $this->nombre,
+            'descripcion' => $this->descripcion,
+            'garantia'    => $this->garantia,
+            'existencia'       => $this->existencia,
+            'precioUnitario'       => $this->precioUnitario,
+            'id_vendedor'       => $this->id_vendedor
         ]);
         $this->reset();
     }
@@ -39,27 +44,33 @@ class ProductComponent extends Component
         $product = Product::find($id);
 
         $this->product_id = $product->id;
-        $this->name = $product->name;
-        $this->description = $product->description;
-        $this->quantity = $product->quantity;
-        $this->price = $product->price;
+        $this->nombre = $product->nombre;
+        $this->descripcion = $product->descripcion;
+        $this->garantia = $product->garantia;
+        $this->existencia = $product->existencia;
+        $this->precioUnitario = $product->precioUnitario;
+        $this->id_vendedor = $product->id_vendedor;
 
         $this->view = 'edit';
     }
 
     public function update(){
         $this->validate([
-            'name' => 'required',
-            'description' => 'required',
-            'quantity' => 'required',
-            'price' => 'required'
+            'nombre' => 'required',
+            'descripcion' => 'required',
+            'garantia' => 'required',
+            'existencia' => 'required',
+            'precioUnitario' => 'required',
+            'id_vendedor' => 'required'
         ]);
         $product = Product::find($this->product_id);
         $product->update([
-            'name'        => $this->name,
-            'description' => $this->description,
-            'quantity'    => $this->quantity,
-            'price'       => $this->price
+            'nombre'        => $this->nombre,
+            'descripcion' => $this->descripcion,
+            'garantia'    => $this->garantia,
+            'existencia'       => $this->existencia,
+            'precioUnitario'       => $this->precioUnitario,
+            'id_vendedor'       => $this->id_vendedor
         ]);
 
         $this->reset();

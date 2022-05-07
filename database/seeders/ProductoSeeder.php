@@ -15,13 +15,13 @@ class ProductoSeeder extends Seeder
      */
     public function run()
     {
-        DB::table("productos")->insert([
+        DB::table("products")->insert([
             [
                 "nombre" => "camisa 1",
                 "descripcion" => "camisa blnca, tela de algodon",
                 "garantia" => "6 meses",
                 "existencia" => 10,
-                "precio_unitario" => 22.3,
+                "precioUnitario" => 22.3,
                 "id_vendedor" => 1,
                 "created_at" => now(),
                 "updated_at" => now(),
