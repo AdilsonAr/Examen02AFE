@@ -20,7 +20,7 @@
                             <td>{{ $product->name }}</td>
                             <td>{{ $product->description }}</td>
                             <td>{{ $product->quantity }}</td>
-                            <td>${{ $product->price }} MXN</td>
+                            <td>${{ $product->price }} USD</td>
                             <td>
                                 <button type="button" class="btn btn-warning" wire:click='edit({{ $product->id }})'>Editar</button>
                             </td>

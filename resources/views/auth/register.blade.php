@@ -1,12 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container p-5 h-auto vh-100" style="
+background-color: background-color: #85FFBD;
+background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);"
+>
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
-
+            <div class="card border-0 pt-3 pb-3 text-center">
+                <div class="card-header border-0 text-uppercase fw-bold text-primary fs-1" 
+                style="background-color: white">{{ __('Register') }}</div>
+                
+                <img class="card-img-top w-25 h-25 text-center align-self-center" src="{{ asset('images/register.png') }}" alt="Card image cap">
+                
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
@@ -63,7 +69,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-success">
                                     {{ __('Register') }}
                                 </button>
                             </div>
